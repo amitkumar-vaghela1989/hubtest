@@ -1,0 +1,18 @@
+------------------------------------------
+1) Install hub utility
+sudo add-apt-repository ppa:cpick/hub
+sudo apt-get update
+sudo apt-get install hub
+
+2) configure hub for local github server : TODO
+
+2) Mirror the AOSP code from codearoa or remote server
+ - use --mirror with the repo init
+ i.e.
+repo init --mirror -u https://source.codeaurora.org/quic/la/platform/manifest.git -b release -m LA.UM.6.4.r1-05700-8x98.0.xml --repo-url=git://codeaurora.org/tools/repo.git --repo-branch=caf-stable
+
+3) Copy the script.sh to specific location
+
+4) Execute the repo forall commandn as below.
+repo forall -c 'sh <absolute path of script>/script.sh'
+i.e. repo forall -c 'sh /workspace1/Netgear/source/aosp/835_repo_exp/script.sh

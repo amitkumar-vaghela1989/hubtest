@@ -1,0 +1,50 @@
+clone 835:
+repo init --mirror -u https://source.codeaurora.org/quic/la/platform/manifest.git -b release -m LA.UM.6.4.r1-05700-8x98.0.xml --repo-url=git://codeaurora.org/tools/repo.git --repo-branch=caf-stable
+
+hub to create project
+-----------------------------------------------------
+sudo add-apt-repository ppa:cpick/hub
+sudo apt-get update
+sudo apt-get install hub
+
+hub  create repo-name
+
+
+
+repo forall -c 'echo $REPO_PATH;git push --set-upstream git@10.99.4.101:test1/$REPO_PROJECT master \
+"refs/heads/*:refs/heads/aosp/*"'
+
+repo forall -c 'echo $REPO_PATH;git push --set-upstream http://10.99.4.101:2222/test1/$REPO_PROJECT \
+"refs/heads/*:refs/heads/aosp/*"'
+
+git push --set-upstream git@10.99.4.101:test1/$(git rev-parse --show-toplevel | xargs basename).git $(git rev-parse --abbrev-ref HEAD)
+
+git lab create git@10.99.4.101:test1/howto
+
+git push --set-upstream git@gitlab.example.com:namespace/nonexistent-project.git master
+
+repo forall -c 'git push http://10.99.4.101:2222/test1/my835 HEAD:refs/heads/master'
+
+   repo forall -c 'git push ssh://yourserver.example.com/$REPO_PROJECT \
+       "refs/heads/*:refs/heads/aosp/*"'
+git@10.99.4.101:test1/my835.git
+
+repo forall -c 'git push git@10.99.4.101:test1/my835.git \
+"refs/heads/*:refs/heads/aosp/*"'
+       
+       
+repo forall -c 'git push git@10.99.4.101:test1/my835.git HEAD:refs/heads/master'
+
+
+http://10.99.4.101:2222/test1/my835.git
+
+repo forall -c 'git push http://10.99.4.101:2222/test1/my835.git HEAD:refs/heads/master'
+
+
+
+
+url mirror
+-------------------------------------
+git clone --bare https://source.codeaurora.org/quic/la/platform/manifest.git -b release -m LA.UM.6.4.r1-05700-8x98.0.xml --repo-url=git://codeaurora.org/tools/repo.git --repo-branch=caf-stable
+
+Please wait while we import the repository for you. Refresh at will. 
